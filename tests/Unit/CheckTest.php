@@ -28,5 +28,12 @@ class CheckTest extends TestCase
         $car = Car::find(1);
         $this->assertContains($car->Make, ["Honda", "Ford", "Toyota"]);
     }
+    public function testCarModel()
+    {
+        $car = Car::find(1);
+        $model = (string) $car->Model;
+        $this->assertInternalType("string",$model);
+    }
+
 
 }
