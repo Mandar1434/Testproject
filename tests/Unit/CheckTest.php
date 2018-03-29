@@ -17,10 +17,16 @@ class CheckTest extends TestCase
 
 
         public function testCarYear()
+        {
+            $car = Car::find(1);
+            $year = (int)$car->Year;
+            $this->assertInternalType("int", $year);
+        }
+
+    public function testCarMake()
     {
         $car = Car::find(1);
-        $year = (int) $car->Year;
-        $this->assertInternalType("int",$year);
+        $this->assertContains($car->Make, ["Honda", "Ford", "Toyota"]);
     }
 
 }
